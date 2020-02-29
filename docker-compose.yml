@@ -17,3 +17,18 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - ./certs/:/certs/:ro
       - ./traefik.yml:/etc/traefik/dynamic_conf/conf.yml:ro
+
+  rcf:
+    build: rest-container-factory
+    ports:
+      - 5000:8000
+    volumes:
+      - type: bind
+        source: /var/run/docker.sock
+        target: /var/run/docker.sock
+      - type: bind
+        source: /var/lib/docker
+        target: /var/lib/docker
+    environment:
+      SMTP_USER: ${SMTP_USER}
+      SMTP_PASSWORD: ${SMTP_PASSWORD}
