@@ -1,3 +1,6 @@
 [submodule "rest-container-factory"]
 	path = rest-container-factory
 	url = git@github.com:ethicloud/rest-container-factory.git
+[submodule "back-office"]
+	path = back-office
+	url = git@github.com:ethicloud/back-office.git
